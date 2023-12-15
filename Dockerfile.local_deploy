@@ -51,9 +51,9 @@ RUN mv /data/_build/dev/rel/dog/* /opt/dog_ex/
 
 RUN tar czf /tmp/dog_agent_ex.tar.gz /opt/dog_ex
 
-FROM scratch AS tar
-COPY --from=base /data/burrito_out/dog_linux /
-COPY --from=base /tmp/dog_agent_ex.tar.gz / 
+#FROM scratch AS tar
+#COPY --from=base /data/burrito_out/dog_linux /
+#COPY --from=base /tmp/dog_agent_ex.tar.gz / 
 
-CMD /bin/bash -c "/etc/rabbitmq/csc_certs.sh" && /bin/bash -c "/opt/dog_ex/bin/dog start"
+CMD /bin/sh -c "/etc/rabbitmq/csc_certs.sh" && /bin/sh -c "/opt/dog_ex/bin/dog start"
 #CMD /bin/bash -c "/etc/rabbitmq/csc_certs.sh" && /bin/bash -c "sleep infinity"
